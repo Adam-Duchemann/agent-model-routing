@@ -1,0 +1,52 @@
+[
+  {
+    "id": "q1_locate_fn",
+    "class": "locate",
+    "routed_model": "haiku",
+    "type": "locate",
+    "prompt": "In this repository, which source file(s) define a function named `wiki_catalog_set`? Search the codebase to find out. End your reply with exactly one line: ANSWER: <comma-separated repo-relative file paths>",
+    "ground_truth_files": ["src-tauri/src/commands/wiki.rs", "crates/core/src/lib.rs"]
+  },
+  {
+    "id": "q2_locate_schema",
+    "class": "locate",
+    "routed_model": "haiku",
+    "type": "locate",
+    "prompt": "In this repository, what is the path of the single SQL file that defines the local core database schema — the schema.sql that contains the CREATE TABLE statements for the app's own embedded SQLite tables (NOT the Supabase cloud migrations under supabase/migrations/)? Search to confirm. End your reply with exactly one line: ANSWER: <repo-relative path>",
+    "ground_truth_files": ["crates/core/src/schema.sql"]
+  },
+  {
+    "id": "q3_enumerate_tests",
+    "class": "enumerate",
+    "routed_model": "haiku",
+    "type": "count",
+    "prompt": "In this repository, how many Rust source files (.rs) contain at least one test function annotated with #[test] or #[tokio::test]? Count files, not individual test functions. Search the whole repository. End your reply with exactly one line: ANSWER: <integer>",
+    "ground_truth_count": 64
+  },
+  {
+    "id": "q4_locate_migration",
+    "class": "locate",
+    "routed_model": "haiku",
+    "type": "locate",
+    "prompt": "In this repository, which SQL migration file creates the `wiki_catalog` table? Search under the migrations directory. End your reply with exactly one line: ANSWER: <repo-relative path>",
+    "ground_truth_files": ["supabase/migrations/018_wiki_catalog.sql"]
+  },
+  {
+    "id": "i1_interpret_sync",
+    "class": "interpret",
+    "routed_model": "sonnet",
+    "type": "judge",
+    "prompt": "In this codebase, how does Supabrain resolve conflicts when the SAME record is edited on two different devices before they sync? Read the relevant code and explain the conflict-resolution strategy, the specific field it compares, and how row identity is kept stable so an edit updates in place instead of creating a duplicate. End your reply with exactly one line: ANSWER: <2-4 sentence explanation of the strategy>",
+    "reference_answer": "Last-Write-Wins (LWW) on the SERVER clock: each local row records `remote_updated_at` (the cloud `updated_at` last applied); on pull, an incoming row is skipped unless its server `updated_at` is newer than the stored `remote_updated_at`, and when it wins it overwrites the whole losing edit (no field-merge). Row identity is the composite key `(project_id, issue_id)` — the upsert is keyed on that pair, so an edit UPDATEs the existing row in place instead of inserting a duplicate. KEY MECHANISM to credit: (1) LWW by timestamp comparison, (2) the timestamp/field is updated_at / remote_updated_at, (3) identity keyed on (project_id, issue_id) so it upserts the same row.",
+    "key_points": ["last-write-wins / newer timestamp wins", "compares updated_at / remote_updated_at", "identity keyed on (project_id, issue_id) upsert"]
+  },
+  {
+    "id": "i2_interpret_validator",
+    "class": "interpret",
+    "routed_model": "sonnet",
+    "type": "judge",
+    "prompt": "In this codebase, when a memory is saved, how does the validator decide WHICH sections a memory is required to have — is the required-section set the same for every memory, or does it depend on the memory? Read the validator code and explain what the requirement is keyed on. End your reply with exactly one line: ANSWER: <2-4 sentence explanation>",
+    "reference_answer": "The required-section set is NOT fixed — it is computed per memory (validate_memory_format → required_substance(work_type, code_subject)), where code_subject = is_code_subject(work_type, domain) (explicit domain=code, or inferred from work_type). A small floor (Problem Statement + What Was Done) applies to all non-commit memories; commit memories skip section checks. Beyond the floor the substance section is keyed on the subject: code work requires ### Technical Implementation (feature/bugfix/improvement also ### Files Modified), a decision requires Key Decisions/Rationale, an analysis requires Findings. KEY MECHANISM to credit: required sections are gated on the memory's work_type (and/or domain=code), NOT a single universal list.",
+    "key_points": ["required sections are NOT fixed/universal — computed per memory", "keyed on work_type and/or domain=code", "different work_types require different substance sections"]
+  }
+]
