@@ -1,4 +1,4 @@
-# claude-code-model-routing
+# agent-model-routing
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![benchmark: up to 91% cheaper](https://img.shields.io/badge/benchmark-up%20to%2091%25%20cheaper-brightgreen)](benchmark/)
@@ -75,8 +75,8 @@ Plus the guardrails that make it hold up in practice:
 ## Install
 
 ```bash
-git clone https://github.com/Adam-Duchemann/claude-code-model-routing.git
-cd claude-code-model-routing
+git clone https://github.com/Adam-Duchemann/agent-model-routing.git
+cd agent-model-routing
 ./install.sh                        # appends the policy to ~/.claude/CLAUDE.md (global, all projects)
 ./install.sh path/to/your/CLAUDE.md # or install into a single project instead
 ```
