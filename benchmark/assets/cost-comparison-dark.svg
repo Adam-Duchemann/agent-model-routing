@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Cost per full benchmark pass: routed model mix versus all-Fable baseline. Exploration 91% cheaper, interpretive 32%, full mix 59%, at 100% quality parity.">
+<rect width="780" height="440" rx="10" fill="#1a1a19"/>
+<text x="40" y="36" font-size="19" font-weight="600" fill="#ffffff">Cost per session pass — routed mix vs all-Fable</text>
+<text x="40" y="57" font-size="13" fill="#898781">6-task mix · n=3 trials · real billed cost · lower is better ↓</text>
+<rect x="40" y="70" width="12" height="12" rx="2" fill="#3987e5"/>
+<text x="58" y="80" font-size="13" fill="#c3c2b7">Routed (policy tiers)</text>
+<rect x="210" y="70" width="12" height="12" rx="2" fill="#d95926"/>
+<text x="228" y="80" font-size="13" fill="#c3c2b7">All-Fable (baseline)</text>
+<text x="66" y="364.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">$0.00</text>
+<line x1="76" y1="295.0" x2="756" y2="295.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="66" y="299.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">$0.60</text>
+<line x1="76" y1="230.0" x2="756" y2="230.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="66" y="234.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">$1.20</text>
+<line x1="76" y1="165.0" x2="756" y2="165.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="66" y="169.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">$1.80</text>
+<line x1="76" y1="100.0" x2="756" y2="100.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="66" y="104.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">$2.40</text>
+<line x1="76" y1="360" x2="756" y2="360" stroke="#383835" stroke-width="1.5"/>
+<text x="22" y="230" font-size="12" fill="#898781" text-anchor="middle" transform="rotate(-90 22 230)">mean $ (billed)</text>
+<path d="M123.33333333333331,360 L123.33333333333331,352.925 Q123.33333333333331,349.925 126.33333333333331,349.925 L184.33333333333331,349.925 Q187.33333333333331,349.925 187.33333333333331,352.925 L187.33333333333331,360 Z" fill="#3987e5"/>
+<path d="M191.33333333333331,360 L191.33333333333331,248.59999999999997 Q191.33333333333331,245.59999999999997 194.33333333333331,245.59999999999997 L252.33333333333331,245.59999999999997 Q255.33333333333331,245.59999999999997 255.33333333333331,248.59999999999997 L255.33333333333331,360 Z" fill="#d95926"/>
+<text x="155" y="344" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$0.09</text>
+<text x="223" y="240" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$1.06</text>
+<text x="155" y="168" font-size="16" font-weight="700" text-anchor="middle" fill="#0ca30c">↓ 91%</text>
+<text x="155" y="184" font-size="11" text-anchor="middle" fill="#0ca30c">cheaper</text>
+<text x="189" y="382" font-size="13" font-weight="600" text-anchor="middle" fill="#ffffff">Exploration</text>
+<text x="189" y="398" font-size="11" text-anchor="middle" fill="#898781">Haiku</text>
+<path d="M350.0,360 L350.0,272.10833333333335 Q350.0,269.10833333333335 353.0,269.10833333333335 L411.0,269.10833333333335 Q414.0,269.10833333333335 414.0,272.10833333333335 L414.0,360 Z" fill="#3987e5"/>
+<path d="M418.0,360 L418.0,229.20833333333331 Q418.0,226.20833333333331 421.0,226.20833333333331 L479.0,226.20833333333331 Q482.0,226.20833333333331 482.0,229.20833333333331 L482.0,360 Z" fill="#d95926"/>
+<text x="382" y="263" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$0.84</text>
+<text x="450" y="220" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$1.24</text>
+<text x="382" y="168" font-size="16" font-weight="700" text-anchor="middle" fill="#0ca30c">↓ 32%</text>
+<text x="382" y="184" font-size="11" text-anchor="middle" fill="#0ca30c">cheaper</text>
+<text x="416" y="382" font-size="13" font-weight="600" text-anchor="middle" fill="#ffffff">Interpretive</text>
+<text x="416" y="398" font-size="11" text-anchor="middle" fill="#898781">Sonnet</text>
+<path d="M576.6666666666666,360 L576.6666666666666,262.14166666666665 Q576.6666666666666,259.14166666666665 579.6666666666666,259.14166666666665 L637.6666666666666,259.14166666666665 Q640.6666666666666,259.14166666666665 640.6666666666666,262.14166666666665 L640.6666666666666,360 Z" fill="#3987e5"/>
+<path d="M644.6666666666666,360 L644.6666666666666,114.80833333333331 Q644.6666666666666,111.80833333333331 647.6666666666666,111.80833333333331 L705.6666666666666,111.80833333333331 Q708.6666666666666,111.80833333333331 708.6666666666666,114.80833333333331 L708.6666666666666,360 Z" fill="#d95926"/>
+<text x="609" y="253" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$0.93</text>
+<text x="677" y="106" font-size="12" text-anchor="middle" fill="#c3c2b7" font-variant-numeric="tabular-nums">$2.29</text>
+<text x="609" y="168" font-size="16" font-weight="700" text-anchor="middle" fill="#0ca30c">↓ 59%</text>
+<text x="609" y="184" font-size="11" text-anchor="middle" fill="#0ca30c">cheaper</text>
+<text x="643" y="382" font-size="13" font-weight="600" text-anchor="middle" fill="#ffffff">Full mix</text>
+<text x="643" y="398" font-size="11" text-anchor="middle" fill="#898781">6 tasks</text>
+<text x="40" y="428" font-size="11" fill="#898781">Quality identical both arms: 18/18 tasks passed. Fixture: a ~270-file Rust+TS repo.</text>
+</svg>

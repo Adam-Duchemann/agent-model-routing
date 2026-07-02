@@ -39,6 +39,11 @@ Requires the `claude` CLI logged in. Each run spends real money under your accou
 
 ## Current results (n=3, fixture: a ~270-file Rust+TS repo)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cost-comparison-dark.svg">
+  <img alt="Cost per session pass, routed model mix vs all-Fable baseline: exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="assets/cost-comparison-light.svg" width="100%">
+</picture>
+
 | Tier | Tasks | Quality (both arms) | Routed | Baseline (Fable) | Savings |
 |---|---|---|---|---|---|
 | Exploration (Haiku) | 4 locate/enumerate | 12/12 = 12/12 | **$0.093** | $1.056 | **91%** |

@@ -1,8 +1,32 @@
 # claude-code-model-routing
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![benchmark: up to 91% cheaper](https://img.shields.io/badge/benchmark-up%20to%2091%25%20cheaper-brightgreen)](benchmark/)
+
 **Route delegated work to the cheapest Claude model that does it well.**
 
 A drop-in `CLAUDE.md` policy for [Claude Code](https://claude.com/claude-code) that keeps your expensive top-tier model focused on planning and judgment, while codebase exploration and implementation run on cheaper tiers — automatically, on every task.
+
+## Results — first benchmark
+
+**Up to 91% cheaper exploration · 59% cheaper on a mixed session · at 100% quality parity.**
+Measured, not estimated — every task runs headless with **real billed cost**, averaged over n=3 trials.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="benchmark/assets/cost-comparison-dark.svg">
+  <img alt="Cost per session pass, routed model mix vs all-Fable baseline: exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="benchmark/assets/cost-comparison-light.svg" width="100%">
+</picture>
+
+| Slice | Routed | All-Fable | Savings |
+|---|---|---|---|
+| Exploration (Haiku) | $0.09 | $1.06 | **up to 91%** |
+| Interpretive (Sonnet) | $0.84 | $1.24 | 32% |
+| **Full mix (6 tasks)** | **$0.93** | **$2.29** | **59%** |
+| Quality (both arms) | 18/18 | 18/18 | **100% parity** |
+
+Fable pays a premium just to *hold context*: its locate runs cost ~$0.25–0.30 each while producing *fewer* output tokens than Haiku — the "context tax at top-tier prices" the policy removes. Routing the high-volume exploration work down-tier is where the money is.
+
+> **First results — read honestly.** One fixture, 6 tasks, n=3. Quality maxed out on *both* arms, so this proves "equal quality, far less cost" **at this difficulty** — it hasn't yet found where a cheap model *breaks* (which is where the escalate-don't-retry guardrail earns its place). The substantive-implementation (Opus) tier isn't measured yet. Harder discriminating tasks and more fixtures are coming. Full method, raw numbers, and the runnable harness → [`benchmark/`](benchmark/).
 
 ## The problem
 
