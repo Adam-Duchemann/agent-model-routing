@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Cost per full benchmark pass: routed model mix versus all-Fable baseline. Exploration 91% cheaper, interpretive 32%, full mix 59%, at 100% quality parity.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Cost per session pass, routed model mix versus all-Fable baseline. Exploration 91% cheaper, interpretive 32%, full mix 59%, at 100% quality parity.">
 <rect width="780" height="440" rx="10" fill="#fcfcfb"/>
 <text x="40" y="36" font-size="19" font-weight="600" fill="#0b0b0b">Cost per session pass — routed mix vs all-Fable</text>
 <text x="40" y="57" font-size="13" fill="#898781">6-task mix · n=3 trials · real billed cost · lower is better ↓</text>
