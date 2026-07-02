@@ -13,18 +13,18 @@ A drop-in `CLAUDE.md` policy for [Claude Code](https://claude.com/claude-code) t
 Measured, not estimated — every task runs headless with **real billed cost**, averaged over n=3 trials.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="benchmark/assets/cost-comparison-dark.svg">
-  <img alt="Cost per session pass, routed model mix vs all-Fable baseline: exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="benchmark/assets/cost-comparison-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="benchmark/assets/cost-comparison-relative-dark.svg">
+  <img alt="Cost per session pass relative to the all-Fable baseline (=100): exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="benchmark/assets/cost-comparison-relative-light.svg" width="100%">
 </picture>
 
-| Slice | Routed | All-Fable | Savings |
-|---|---|---|---|
-| Exploration (Haiku) | $0.09 | $1.06 | **up to 91%** |
-| Interpretive (Sonnet) | $0.84 | $1.24 | 32% |
-| **Full mix (6 tasks)** | **$0.93** | **$2.29** | **59%** |
-| Quality (both arms) | 18/18 | 18/18 | **100% parity** |
+| Slice | Routed cost | Savings |
+|---|---|---|
+| Exploration (Haiku) | 0.09× baseline | **up to 91%** |
+| Interpretive (Sonnet) | 0.68× baseline | 32% |
+| **Full mix (6 tasks)** | **0.41× baseline** | **59%** |
+| Quality (both arms) | 18/18 = 18/18 | **100% parity** |
 
-Fable pays a premium just to *hold context*: its locate runs cost ~$0.25–0.30 each while producing *fewer* output tokens than Haiku — the "context tax at top-tier prices" the policy removes. Routing the high-volume exploration work down-tier is where the money is.
+Fable pays a premium just to *hold context*: its exploration runs cost **~11× what Haiku's do** while producing *fewer* output tokens — the "context tax at top-tier prices" the policy removes. Routing the high-volume exploration work down-tier is where the money is. *(Absolute per-task costs are tiny — these are short benchmark tasks — so the figures above are cost **relative to the all-Fable baseline**, which is what carries over to a real session.)*
 
 > **First results — read honestly.** One fixture, 6 tasks, n=3. Quality maxed out on *both* arms, so this proves "equal quality, far less cost" **at this difficulty** — it hasn't yet found where a cheap model *breaks* (which is where the escalate-don't-retry guardrail earns its place). The substantive-implementation (Opus) tier isn't measured yet. Harder discriminating tasks and more fixtures are coming. Full method, raw numbers, and the runnable harness → [`benchmark/`](benchmark/).
 

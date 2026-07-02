@@ -40,20 +40,24 @@ Requires the `claude` CLI logged in. Each run spends real money under your accou
 ## Current results (n=3, fixture: a ~270-file Rust+TS repo)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/cost-comparison-dark.svg">
-  <img alt="Cost per session pass, routed model mix vs all-Fable baseline: exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="assets/cost-comparison-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cost-comparison-relative-dark.svg">
+  <img alt="Cost per session pass relative to the all-Fable baseline (=100): exploration 91% cheaper, interpretive 32%, full mix 59% — at identical (18/18) quality." src="assets/cost-comparison-relative-light.svg" width="100%">
 </picture>
 
-| Tier | Tasks | Quality (both arms) | Routed | Baseline (Fable) | Savings |
-|---|---|---|---|---|---|
-| Exploration (Haiku) | 4 locate/enumerate | 12/12 = 12/12 | **$0.093** | $1.056 | **91%** |
-| Interpretive (Sonnet) | 2 how/why | 6/6 = 6/6 | $0.839 | $1.235 | 32% |
-| **Full mix** | 6 | **18/18 = 18/18 (100%)** | **$0.931** | **$2.291** | **59%** |
+| Tier | Tasks | Quality (both arms) | Routed cost | Savings |
+|---|---|---|---|---|
+| Exploration (Haiku) | 4 locate/enumerate | 12/12 = 12/12 | 0.09× baseline | **91%** |
+| Interpretive (Sonnet) | 2 how/why | 6/6 = 6/6 | 0.68× baseline | 32% |
+| **Full mix** | 6 | **18/18 = 18/18 (100%)** | **0.41× baseline** | **59%** |
 
 **Read:** on this mix, routing was **59% cheaper at identical quality**, and **91% cheaper on the
 exploration work** that dominates a real session's delegated tokens. Fable's exploration runs cost
-~$0.25–0.30 each while producing *fewer* output tokens than Haiku — that is the "context tax at
+**~11× what Haiku's do** while producing *fewer* output tokens — that is the "context tax at
 top-tier prices" the policy eliminates.
+
+> We report cost **relative to the baseline**, not absolute dollars: these are short tasks, so the
+> absolute figures are tiny and don't generalize — the *ratio* does. (Raw per-run `total_cost_usd`
+> is in each run's result JSON if you run the harness.)
 
 ## Limitations (read before citing a number)
 
